@@ -9,37 +9,39 @@ document.addEventListener('DOMContentLoaded', function () {
         const message = document.getElementById('exampleFormControlTextarea1').value;
         const phone = document.getElementById('exampleFormControlInput2').value;
         const email = document.getElementById('exampleFormControlInput3').value;
+        const address = document.getElementById('exampleFormControlInput4').value;
 
-        const nameError = document.getElementById('nameError');
+        let nameError = document.getElementById('nameError');
         const messageError = document.getElementById('messageError');
         const phoneError = document.getElementById('phoneError');
         const emailError = document.getElementById('emailError');
         const errorMessages = [];
 
-        if (!name) {
-            nameError.textContent = 'Name is required';
-            errorMessages.push('Name is required');
+
+        if (!name.match(/[a-zA-Zа-яА-ЯёЁіІїЇєЄ`' -]+/)) {
+            nameError.textContent = "Ім'я обов'язково текстове поле";
+            errorMessages.push("Ім'я обов'язково текстове поле");
         } else {
             nameError.textContent = '';
         }
 
         if (message.length < 5) {
-            messageError.textContent = 'Message must be at least 5 characters long';
-            errorMessages.push('Message must be at least 5 characters long');
+            messageError.textContent = 'Повідомлення повинно містити принаймні 5 символів';
+            errorMessages.push('Повідомлення повинно містити принаймні 5 символів');
         } else {
             messageError.textContent = '';
         }
 
         if (!phone.match(/^\+380\d{9}$/)) {
-            phoneError.textContent = 'Phone number must start with +380 and consist of 12 digits';
-            errorMessages.push('Phone number must start with +380 and consist of 12 digits');
+            phoneError.textContent = 'Номер телефону повинен починатися з +380 і складатися з 12 цифр';
+            errorMessages.push('Номер телефону повинен починатися з +380 і складатися з 12 цифр');
         } else {
             phoneError.textContent = '';
         }
 
         if (!email.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/)) {
-            emailError.textContent = 'Invalid email address';
-            errorMessages.push('Invalid email address');
+            emailError.textContent = 'Некоректна адреса електронної пошти';
+            errorMessages.push('Некоректна адреса електронної пошти');
         } else {
             emailError.textContent = '';
         }
@@ -52,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Message: ' + message);
             console.log('Phone number: ' + phone);
             console.log('Email: ' + email);
+            console.log('Address: ' + address);
         }
+    
     });
     // formData.forEach(function (value, name) {
     //     console.log(`${name} - ${value}`);
@@ -65,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //         }
     //     }
     // })
-    console.log({ action, method })
+    // console.log({ action, method })
 })
 
 

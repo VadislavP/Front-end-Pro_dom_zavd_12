@@ -18,20 +18,24 @@
         <form action="link.com/send" method="post" class="js--class">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Name</label>
-                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Name" required>
+                <div id="nameError" class="error"></div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Example textarea</label>
                 <textarea class="form-control" name="message" id="exampleFormControlTextarea1" placeholder="Message" rows="3"></textarea>
+                <div id="messageError" class="error"></div>
             </div>
             <h6>How to answer you?</h6>
             <div class="form-group">
-                <label for="exampleFormControlInput2">Phone number</label>
-                <input type="tel" name="tel" class="form-control" id="exampleFormControlInput2" placeholder="Phone number">
+                <label for="exampleFormControlInput2">+380680000000</label>
+                <input type="tel" name="tel" class="form-control" id="exampleFormControlInput2" placeholder="Phone number" pattern="\+380\d{9}" required>
+                <div id="phoneError" class "error"></div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput3">Email address</label>
-                <input type="email" name="email" class="form-control" id="exampleFormControlInput3" placeholder="Email">
+                <input type="email" name="email" class="form-control" id="exampleFormControlInput3" placeholder="Email" required>
+                <div id="emailError" class="error"></div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput4">Address</label>
@@ -41,6 +45,7 @@
                 <button class="btn" type="submit">Send</button>
             </div>
         </form>
+        <div id="errorMessages"></div>
     </div>
 </section>
 </body>
